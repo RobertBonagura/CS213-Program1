@@ -3,7 +3,7 @@
 
 To clone a Github repository use the following command:
 ```
-git clone <GithubRepo>
+git clone https://github.com/RobertBonagura/CS213-Program1.git
 ```
 
 If you go to the github repository page:<br>
@@ -33,7 +33,7 @@ origin/master is a reference to the remote repository. i.e the repository on my 
 
 More specifically origin is the name of the remote reposiory and master is the name of the branch on the remote repository. We will use origin/master as our shared repository.
 
-However, it is good practice to NEVER push to master. You can create a new branch name on the remote repo by executing for instance
+However, it is good practice to NEVER push to master.
 
 ## Branches
 
@@ -42,11 +42,11 @@ I like to create a seperate local branch to push to the non-master remote branch
 To create a new branch just enter:
 
 ```
-git checkout -b branch-name
+git checkout -b <branch-name>
 ```
-After youve created the branch you can drop the `-b` flag to indicate your just switching branches and not creating one. You can use `git checkout` to go back and forth from master to your own branch, and use `git status` to confirm you are switching successfully.
+After youve created the branch you can drop the `-b` flag to switch between branches. Use `git checkout master` and `git checkout <branch-name>` to go back and forth from master to your own branch. You can also use `git status` to confirm you are switching successfully.
 
-Note anytime you create a branch using `git checkout -b <branch-name>`, you are copying everything in your current branch (in this case master) into the new branch.
+Note anytime you create a branch using `git checkout -b <branch-name>`, you are copying everything in your current branch (in this case master) into the new branch. 
 
 ## Commiting files
 
@@ -61,7 +61,7 @@ When staging files for commit you can simply use `git add .` to add all files th
 You can use `git status` to confirm that you added files successfully.
 
 You can also use `git add <file-name>` and `git rm <file-name>` to have more control of what specific files you want to stage. 
-I sometimes find myself working on a bunch of changes at once but then staging and commiting them seperately so that they can have a clear and meaningful commit message.
+I sometimes find myself working on a bunch of changes at once but then stage and commit certain files seperately so that they can have a clear and meaningful commit message.
 
 Once you have staged files, you can then use:
 ```
@@ -73,9 +73,9 @@ Once you have commited changes, you can finally push those changes to the remote
 git push origin <branch-name>
 ```
 
-Reminder, we should try to avoid saying `git push origin master`.It is good practice to NEVER push to master. We can think of the master branch as our shared branch, that will only contain changes we agree on together. 
+Reminder, we should try to avoid executing `git push origin master`. It is good practice to NEVER push to master. We can think of the master branch as our shared branch, that will only contain changes we agree on together. 
 
-Instead, in the `git push` command, you can create a new branch on the remote repo. I like to name the remote branch after the branch im pushing from locally. 
+Instead, with the `git push` command, you can create a new branch on the remote repo. I like to name the remote branch after the branch im pushing from locally. 
 
 For instance, you can use
 ```
@@ -83,3 +83,10 @@ push origin ezra
 ```
 
 This creates a branch on the remote repo called **ezra**. This will allow me to go to the remote github page, and review them myself before *merging* those changes to master. We should try to make a habit of reviewing and merging each others work before pushing individual branches to master.
+
+## Merges and Pulling 
+Once either have of us has reviewed one another's code, we can use Github to merge that branch to master.
+
+If I ever merge your branch to master, the very next thing I will do is go to local repo, `git checkout ` into my master branch, and then execute `git pull origin master`.
+
+This way I can work with these new changes OR stay in my local branch **bobby** to finish what I was working to eventually execute `git push origin bobby` for you to eventually review and merge to master.
