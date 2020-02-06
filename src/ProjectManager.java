@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * @author
  */
@@ -11,19 +13,33 @@ public class ProjectManager {
 
       boolean done = false;
       while (!done) {
-         String command = stdin.next();
-         switch () {
+         String userInput = stdin.next();
+         Command command = parseInput(userInput);
+         switch (command.getCmd()) {
             case 'A':
                add();
                break;
-            case
-            case
-            case
-            default: //deal with bad command here 
+            case 'R':
+               remove();
+               break;
+            case 'P':
+               print();
+               break;
+            case 'Q':
+               done = true;
+               System.out.println("The team is ready to go!");
+               break;
+            default: //deal with bad command here
+               System.out.println("Command '" + command.getCmd() + "' not supported");
+               break;
          }
       }
       //write java code before you terminate the program
    } //run()
+
+   private Command parseInput(String userInput) {
+      //Parse input string and create a new Command instance to return
+   }
 
    private void add() {
       //must check if the date is valid
