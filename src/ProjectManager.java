@@ -16,10 +16,9 @@ public class ProjectManager {
 
 
    /**
-    * Runs an infinite loop, processing user commands until user quits
-    * program.
-    * Prints to console a confirmation of successful command.
-    * Otherwise, prints a message indicating invalid command.
+    * Runs an infinite loop, processing user commands until user quits program.
+    * Parses user input and if appropriate number of arguments are given
+    * executes the command.
     */
    public void run() {
 
