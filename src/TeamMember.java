@@ -52,7 +52,7 @@ public class TeamMember
       //getStartDate Tests
       if(!teamMember1.getStartDate().equals(teamMember1.startDate))
          System.out.println("getStartDate() test failed, value of date returned by getStartDate() = " +
-                              teamMember1.getStartDate().toString() + " : Expected value = " + teamMember1.startDate.toString() );
+         teamMember1.getStartDate().toString() + " : Expected value = " + teamMember1.startDate.toString() );
       teamMember1.getStartDate() = new Date("2/2/2020");
       if(teamMember1.getStartDate().equals(new Date("2/2/2020")))
          System.out.println("getStartDate() test failed. startDate variable isn't encapsulated.");
@@ -60,7 +60,7 @@ public class TeamMember
       //getName Tests
       if(!teamMember1.getName().equals(teamMember1.name))
          System.out.println("getName() test failed, value of name returned by getName() = " +
-                              teamMember1.getName() + " : Expected value = " + teamMember1.name);
+         teamMember1.getName() + " : Expected value = " + teamMember1.name);
       teamMember1.getName() = "TheWrongName";
       if(teamMember1.getName().equals("TheWrongName"))
          System.out.println("getName() test failed. name variable isn't encapsulated.");
