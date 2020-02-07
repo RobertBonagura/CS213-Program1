@@ -1,7 +1,7 @@
 import java.util.StringTokenizer;
 /**
  This class defines the properties of a date.
- @author Robert Bonagura
+ @author Robert Bonagura rjb348
  */
 public class Date {
    private int day;
@@ -10,7 +10,7 @@ public class Date {
 
    /**
     * Tokenize String into a Date object.
-    * @param d String to be parsed into date.
+    * @param d to be parsed into date.
     */
    public Date(String d) {
       //use StringTokenizer to parse the String and create a Date object
@@ -27,13 +27,16 @@ public class Date {
    }
 
    public Date(Date d) {
-      //this is a constructor
       this.day = d.day;
       this.month = d.month;
       this.year = d.year;
       return;
    }
 
+   /**
+    *
+    * @return
+    */
    public boolean isValid() {
       int DAY_FIRST = 1;
       switch (this.month) {
@@ -73,6 +76,10 @@ public class Date {
       return true;
    }
 
+   /**
+    *
+    * @return
+    */
    private boolean isLeapYear() {
       if (this.year % 4 == 0) {
          if (this.year % 100 == 0) {
@@ -88,6 +95,10 @@ public class Date {
       return false;
    }
 
+   /**
+    *
+    * @return
+    */
    @Override
    public String toString() {
       String slash = "/";
@@ -99,6 +110,11 @@ public class Date {
 
    }
 
+   /**
+    *
+    * @param obj
+    * @return
+    */
    @Override
    public boolean equals(Object obj) {
       if (obj instanceof Date) {
