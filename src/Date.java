@@ -10,10 +10,9 @@ public class Date {
 
    /**
     * Tokenize String into a Date object.
-    * @param d to be parsed into date.
+    * @param d to be parsed into date
     */
    public Date(String d) {
-      //use StringTokenizer to parse the String and create a Date object
       String delim = "/";
       StringTokenizer st = new StringTokenizer(d, delim);
       this.month = Integer.parseInt(st.nextToken());
@@ -26,6 +25,11 @@ public class Date {
       return;
    }
 
+
+   /**
+    * Creates a Date object that is a copy of the parameter.
+    * @param d Date argument to copy as new Date object
+    */
    public Date(Date d) {
       this.day = d.day;
       this.month = d.month;
@@ -34,8 +38,9 @@ public class Date {
    }
 
    /**
-    *
-    * @return
+    * Checks if the date is valid.
+    * Checks that date is consistent with number of days in that given month.
+    * @return true if date is valid, false if not
     */
    public boolean isValid() {
       int DAY_FIRST = 1;
@@ -77,8 +82,8 @@ public class Date {
    }
 
    /**
-    *
-    * @return
+    * Checks if the year of the current Date object is a leap year
+    * @return true if it is leap year, otherwise returns false
     */
    private boolean isLeapYear() {
       if (this.year % 4 == 0) {
@@ -96,8 +101,8 @@ public class Date {
    }
 
    /**
-    *
-    * @return
+    * Compose a String from the Date object in MM/DD/YYYY format.
+    * @return String in MM/DD/YYYY format
     */
    @Override
    public String toString() {
@@ -107,13 +112,12 @@ public class Date {
       String yearStr = Integer.toString(this.year);
       String output = monthStr + slash + dayStr + slash + yearStr;
       return output;
-
    }
 
    /**
-    *
-    * @param obj
-    * @return
+    * Compares whether or not the given argument matches this date object.
+    * @param obj Object being compared to this date object
+    * @return True if they haven the same date, false otherwise.
     */
    @Override
    public boolean equals(Object obj) {
@@ -125,5 +129,13 @@ public class Date {
          }
       }
       return false;
+   }
+
+   /**
+    * Testbed main function for Date class.
+    * Tests each method of the class.
+    */
+   public static void main(String[] args) {
+
    }
 }
