@@ -25,7 +25,6 @@ public class Date {
       return;
    }
 
-
    /**
     * Creates a Date object that is a copy of the parameter.
     * @param d Date argument to copy as new Date object
@@ -137,5 +136,44 @@ public class Date {
     */
    public static void main(String[] args) {
 
+      int MAX_SIZE = 10;
+      Date[] dates = new Date[MAX_SIZE];
+
+      System.out.println("Testing first constructor, isValid(), " +
+              "isLeapYear() and toString() methods:");
+      dates[0] = new Date("1/01/2000");
+      dates[1] = new Date("6/01/2007");
+      dates[2] = new Date("12/01/2003");
+      dates[3] = new Date("13/01/2002");
+      dates[4] = new Date("0/01/2002");
+      dates[5] = new Date("2/30/2000");
+      dates[6] = new Date("2/28/2007");
+      dates[7] = new Date("2/29/2000");
+      dates[8] = new Date("2/29/2002");
+      dates[9] = new Date("2/28/2002");
+
+      for (int i = 0; i < MAX_SIZE; i++ ){
+         String leapYearStr, validity;
+         if (dates[i].isLeapYear()){
+            leapYearStr = "is a leap year";
+         } else {
+            leapYearStr = "is not a leap year";
+         }
+         if (dates[i].isValid()) {
+            validity = "and is a valid date.";
+         } else {
+            validity = "and is NOT a valid date.";
+         }
+         System.out.printf("%s %s %s\n", dates[i], leapYearStr, validity);
+      }
+
+      System.out.println("Testing second constructor and isEquals method:");
+      Date date1 = dates[0];
+      Date date2 = new Date(date1);
+      Date date3 = new Date(date1.toString());
+      Date date4 = new Date(dates[1]);
+      System.out.printf("%s equals %s: %s\n", date1, date2, date1.equals(date2));
+      System.out.printf("%s equals %s: %s\n", date1, date3, date1.equals(date3));
+      System.out.printf("%s equals %s: %s\n", date1, date4, date1.equals(date4));
    }
 }
