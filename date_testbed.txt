@@ -1,0 +1,15 @@
+Testing first constructor, isValid(), isLeapYear() and toString() methods:
+1/1/2000 is a leap year and is a valid date.
+6/1/2007 is not a leap year and is a valid date.
+12/1/2003 is not a leap year and is a valid date.
+13/1/2002 is not a leap year and is NOT a valid date.
+0/1/2002 is not a leap year and is NOT a valid date.
+2/30/2000 is a leap year and is NOT a valid date.
+2/28/2007 is not a leap year and is a valid date.
+2/29/2000 is a leap year and is a valid date.
+2/29/2002 is not a leap year and is NOT a valid date.
+2/28/2002 is not a leap year and is a valid date.
+Testing second constructor and isEquals method:
+1/1/2000 equals 1/1/2000: true
+1/1/2000 equals 1/1/2000: true
+1/1/2000 equals 6/1/2007: false
