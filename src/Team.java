@@ -5,7 +5,7 @@
 public class Team 
 {
    private final int NOT_FOUND = -1;
-   private final int GROW_SIZE = 4; //initial and grow size
+   private final int GROW_SIZE = 4; //initial and grow.length
    private TeamMember [] team;
    private int numMembers;
    
@@ -26,7 +26,7 @@ public class Team
    
    private void grow()
    {
-      TeamMember[] newTeamArray = TeamMember[team.size * GROW_SIZE];
+      TeamMember[] newTeamArray = new TeamMember[team.length * GROW_SIZE];
       copyTeamToNewArray(newTeamArray);
       this.team = newTeamArray;
    }
@@ -47,16 +47,19 @@ public class Team
    {     
       team[numMembers] = m;
       numMembers++;
-      if(numMembers == team.size)
+      if(numMembers == team.length)
          grow();
    }
    
    public boolean remove(TeamMember m)
    {
       int indexToRemove = find(m);
+      if(indexToRemove == NOT_FOUND)
+         return false;
       team[indexToRemove] = team[numMembers-1];
-      team[numElements-1] = null;
-      numElements--;
+      team[numMembers-1] = null;
+      numMembers--;
+      return true;
    }
    
    public boolean contains(TeamMember m)
