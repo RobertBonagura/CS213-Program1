@@ -8,9 +8,8 @@ public class ProjectManager {
 
    private Scanner stdin;
    private Team cs213;
-   private String cmd;
+   private String command;
    private String name;
-   private String dateStr;
    private Date date;
    private TeamMember member;
 
@@ -22,29 +21,25 @@ public class ProjectManager {
     */
    public void run() {
 
+      stdin = new Scanner(System.in);
+      cs213 = new Team();
       boolean done = false;
       while (!done) {
-         String command  = stdin.next();
-         String[] parsedInput = command.split(" ");
-         cmd = parsedInput[0];
 
-         if (cmd.length() > 1){
+         command  = stdin.next();
+
+         if (command.length() > 1){
             System.out.println("Invalid command: First argument must be one character.");
             continue;
          }
-
-         if ((cmd.charAt(0) == 'A' || cmd.charAt(0) == 'R' )
-                 && parsedInput.length == 3){
-
-            name = parsedInput[1];
-            dateStr = parsedInput[2];
+         if (command.charAt(0) == 'A' || command.charAt(0) == 'R' ) {
+            name = stdin.next();
+            String dateStr = stdin.next();
             date = new Date(dateStr);
             member = new TeamMember(name, date);
-         } else if (parsedInput.length == 3) {
-            System.out.println("Error: Add and Remove commands require exactly 3 arguments.");
          }
 
-         switch (cmd.charAt(0)) {
+         switch (command.charAt(0)) {
             case 'A':
                add();
                break;
@@ -60,7 +55,7 @@ public class ProjectManager {
                done = true;
                break;
             default:
-               System.out.println("Command '" + cmd + "' not supported!");
+               System.out.println("Command '" + command + "' not supported!");
                break;
          }
       }
@@ -74,14 +69,16 @@ public class ProjectManager {
     */
    private void add() {
       if (!date.isValid()) {
-         System.out.printf("%s is not a valid date\n", dateStr);
+         System.out.printf("%s is not a valid date\n", date.toString());
          return;
       }
       if (cs213.contains(member)){
-         System.out.printf("%s %s is already in the team.\n", name, dateStr);
+         System.out.printf("%s %s is already in the team.\n", name,
+                 date.toString());
       } else {
          cs213.add(member);
-         System.out.printf("%s %s has joined the team.\n", name, dateStr);
+         System.out.printf("%s %s has joined the team.\n", name,
+                 date.toString());
       }
    }
 
@@ -92,14 +89,16 @@ public class ProjectManager {
     */
    private void remove() {
       if (!date.isValid()) {
-         System.out.printf("%s is not a valid date\n", dateStr);
+         System.out.printf("%s is not a valid date\n", date.toString());
          return;
       }
       if (!cs213.contains(member)){
-         System.out.printf("%s %s is not a team member.\n", name, dateStr);
+         System.out.printf("%s %s is not a team member.\n", name,
+                 date.toString());
       } else {
          cs213.remove(member);
-         System.out.printf("%s %s has left the team.\n", name, dateStr);
+         System.out.printf("%s %s has left the team.\n", name,
+                 date.toString());
       }
    }
 
