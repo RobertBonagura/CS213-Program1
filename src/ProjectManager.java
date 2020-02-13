@@ -28,10 +28,6 @@ public class ProjectManager {
 
          command  = stdin.next();
 
-         if (command.length() > 1){
-            System.out.println("Invalid command: First argument must be one character.");
-            continue;
-         }
          if (command.charAt(0) == 'A' || command.charAt(0) == 'R' ) {
             name = stdin.next();
             String dateStr = stdin.next();
@@ -52,6 +48,7 @@ public class ProjectManager {
                print();
                break;
             case 'Q':
+               print();
                done = true;
                break;
             default:
@@ -89,7 +86,7 @@ public class ProjectManager {
     */
    private void remove() {
       if (!date.isValid()) {
-         System.out.printf("%s is not a valid date\n", date.toString());
+         System.out.printf("%s is not a valid date!\n", date.toString());
          return;
       }
       if (!cs213.contains(member)){
@@ -112,6 +109,7 @@ public class ProjectManager {
       } else {
          System.out.println("We have the following team members:");
          cs213.print();
+         System.out.println("-- end of list --");
       }
    }
 } //ProjectManager
