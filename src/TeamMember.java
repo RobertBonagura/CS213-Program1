@@ -1,40 +1,65 @@
 /**
- 
- @author  
+ A data structure holding the name and startDate of a TeamMember with basic functionality.
+ Functionality includes read-only access of data, and equals() method, and a toString90 method.
+
+ @author  Ezra Haleva
  */
 public class TeamMember 
 {
    private String name;
    private Date   startDate;
    
+   /**
+   Initializes a new TeamMember with the values provided in nm and date parameters.
+   When initializing startDate, a new Date object is created.
+   @param nm Name of the TeamMember
+   @param date StartDate of the TeamMember.
+   */
    public TeamMember(String nm, Date date)
    {
       this.name = nm;
-      this.startDate = date;
+      this.startDate = new Date(date);
    }
-   
+   /**
+   Creates and returns a new date object with the same values as startDate.
+   @return the newly created date object. 
+   */
    public Date getStartDate()
    {
       Date dateCopy = new Date(startDate);
       return dateCopy;
    }
    
+   /**
+   returns the value of name
+   @return the value of name
+   */
    public String getName(){
       return this.name;
    }
+   /**
+   Checks if this TeamMember has the same values for name and startDate as the provided object.
+   @param obj The object whose values are compared to this TeamMember.
+   @return true if both name and startDate are equivalent, false if obj is not an instance of TeamMember, false otherwise
+   */
    public boolean equals(Object obj)
    {
+      if(!(obj instanceof TeamMember))
+         return false;
       TeamMember teamMemberArg = (TeamMember)(obj);
       if(teamMemberArg.getName().equals(this.name) &&
          teamMemberArg.getStartDate().equals(this.startDate) )
          return true;
       return false;
    }  
-   
+   /**
+   returns values of name and startDate represented as strings seperated by a space
+   @return name + " " + startDate
+   */
    public String toString()
    {
        //name + " " + startDate;
-       return this.name + " " + this.startDate;
+       return this.name + " " + this.startDate.toString();
    }
 
    public static void main(String [] args)
