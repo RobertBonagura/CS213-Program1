@@ -1,7 +1,7 @@
 import java.util.StringTokenizer;
 /**
  This class defines the properties of a date.
- @author Robert Bonagura rjb348
+ @author Robert Bonagura
  */
 public class Date {
    private int day;

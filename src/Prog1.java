@@ -1,6 +1,6 @@
 /**
   
- @author  
+ @author Ezra Haleva and Robert Bonagura
  */
 public class Prog1
 {

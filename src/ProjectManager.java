@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * The user interface class that handles input commands and outputs messages.
- * @author Robert Bonagura rjb348
+ * @author Robert Bonagura
  */
 public class ProjectManager {
 
@@ -12,7 +12,6 @@ public class ProjectManager {
    private String name;
    private Date date;
    private TeamMember member;
-
 
    /**
     * Runs an infinite loop, processing user commands until user quits program.
